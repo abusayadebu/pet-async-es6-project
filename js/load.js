@@ -6,7 +6,19 @@ const loadCategories = () => {
     .catch((error) => console.log(error))
 }
 
+// loadAllPet
+const loadAllPet =() =>{
+    fetch("https://openapi.programming-hero.com/api/peddy/pets")
+    .then((res) => res.json())
+    .then((data) => displayAllPets(data.pets))
+    .catch((error) => console.log(error))
+}
+
+
+
+
 
 
 // call functions 
 loadCategories();
+loadAllPet();
