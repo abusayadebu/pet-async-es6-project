@@ -15,6 +15,12 @@ const loadAllPet =() =>{
 }
 
 // loadPetCategory
+const loadPetCategory = (id) => {
+     fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`)
+    .then((res) => res.json())
+    .then((data) => displayAllPets(data.data))
+    .catch((error) => console.log(error))
+}
 
 
 

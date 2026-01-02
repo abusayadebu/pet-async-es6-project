@@ -7,6 +7,9 @@ const displayCategories = (categories) =>{
         button.className = "btn border border-base-500 px-12 py-6 rounded-lg text-xl font-bold";
         button.innerText = `${item.category}`;
         
+         button.onclick = () => {
+          loadPetCategory(`${item.category}`)
+         }
         // take categoryContainer here and append the buttonContainer
         const categoryContainer = document.getElementById("category-container")
         categoryContainer.append(button);
@@ -15,8 +18,12 @@ const displayCategories = (categories) =>{
 } 
 
 
+
+
 // displayAllPets
 const displayAllPets = (pets) => {
+    const petConatiner = document.getElementById("pet-container")
+    petConatiner.innerHTML = "";
     pets.forEach((pet) =>{
         const card  = document.createElement("div")
         card.innerHTML = 
@@ -52,7 +59,7 @@ const displayAllPets = (pets) => {
   </div>
 </div>
         `
-        const petConatiner = document.getElementById("pet-container")
+        
         petConatiner.append(card)
     })
 }
