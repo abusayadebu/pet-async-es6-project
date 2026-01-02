@@ -22,8 +22,15 @@ const displayCategories = (categories) =>{
 
 // displayAllPets
 const displayAllPets = (pets) => {
-    const petConatiner = document.getElementById("pet-container")
-    petConatiner.innerHTML = "";
+    const petContainer = document.getElementById("pet-container")
+    petContainer.innerHTML = "";
+    // if don't have data show no content
+    if(pets.length == 0){
+      petContainer.innerHTML = 
+      `<h2 class="text-3xl text-center text-red-500 font-bold">No Content Here</h2>
+      `;
+      return;
+    }
     pets.forEach((pet) =>{
         const card  = document.createElement("div")
         card.innerHTML = 
@@ -60,7 +67,7 @@ const displayAllPets = (pets) => {
 </div>
         `
         
-        petConatiner.append(card)
+        petContainer.append(card)
     })
 }
 
