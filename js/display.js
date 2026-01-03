@@ -4,9 +4,9 @@ const displayCategories = (categories) =>{
         // create buttonContainer
          const button = document.createElement("button");
 
-        button.className = "btn border border-base-500 px-12 py-6 rounded-lg text-xl font-bold";
+        button.className = "category-btn btn border border-base-500 px-12 py-6 rounded-lg text-xl font-bold";
         button.innerText = `${item.category}`;
-        
+        button.id = `btn-${item.category}`
          button.onclick = () => {
           loadPetCategory(`${item.category}`)
          }

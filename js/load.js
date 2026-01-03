@@ -14,11 +14,29 @@ const loadAllPet =() =>{
     .catch((error) => console.log(error))
 }
 
+
+// -------------- remove activeClass
+const removeActiveClass = () => {
+const buttons = document.getElementsByClassName("category-btn");
+        for(let btn of buttons){
+            btn.classList.remove("bg-red-500", "text-white")
+        }
+}
+
+
 // loadPetCategory
 const loadPetCategory = (id) => {
      fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`)
     .then((res) => res.json())
-    .then((data) => displayAllPets(data.data))
+    .then((data) => {
+        // reomve active class 
+        removeActiveClass()
+        
+        // add active class
+        const activeBtn = document.getElementById(`btn-${id}`)
+        activeBtn.classList.add("bg-red-500", "text-white")
+        displayAllPets(data.data)
+    })
     .catch((error) => console.log(error))
 }
 
